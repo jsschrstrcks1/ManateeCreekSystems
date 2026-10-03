@@ -146,9 +146,13 @@
   .notes .label{font-family:var(--display);font-size:.72rem;letter-spacing:.3em;
     text-transform:uppercase;color:rgba(230,244,248,.45);margin:0 0 1.5rem}
   .notes ul{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
-  .notes li{font-size:.97rem;color:rgba(230,244,248,.72);max-width:62ch;
-    display:grid;grid-template-columns:14px 1fr;gap:.7rem;align-items:baseline}
-  .notes li::before{content:"";width:14px;height:1px;background:var(--rope-dim);transform:translateY(-.35em)}
+  /* NOT a two-column grid. A grid item made of loose text plus an inline <a> splits
+     into one item per run, which drops the prose into the 14px marker column and wraps
+     it a word to a line. Positioned marker, padded text: no such failure mode. */
+  .notes li{position:relative;font-size:.97rem;color:rgba(230,244,248,.72);
+    max-width:62ch;padding-left:26px}
+  .notes li::before{content:"";position:absolute;left:0;top:.78em;width:14px;height:1px;
+    background:var(--rope-dim)}
   .notes a{color:rgba(230,244,248,.86);border-bottom:1px solid var(--rope-dim);padding-bottom:1px}
   .notes a:hover{color:#fff}
 
