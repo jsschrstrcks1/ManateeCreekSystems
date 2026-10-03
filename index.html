@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manatee Creek Systems</title>
-<meta name="description" content="Manatee Creek Systems is building Sophos, governance infrastructure for superintelligence. Private development.">
+<meta name="description" content="Manatee Creek Systems is building Sophos, governance infrastructure for superintelligence: ontology, epistemology and teleology, governed. Private development.">
 <meta name="theme-color" content="#072634">
 <meta name="author" content="Ken Baker, Manatee Creek Systems">
 <link rel="canonical" href="https://manateecreeksystems.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Manatee Creek Systems">
 <meta property="og:title" content="Manatee Creek Systems">
-<meta property="og:description" content="Governance infrastructure for superintelligence. Building Sophos.">
+<meta property="og:description" content="Governance infrastructure for superintelligence: ontology, epistemology and teleology, governed. Building Sophos.">
 <meta property="og:url" content="https://manateecreeksystems.com/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23072634'/><path d='M5 20c2.6 0 2.6-2.4 5.2-2.4S12.8 20 15.4 20s2.6-2.4 5.2-2.4S23.2 20 25.8 20' stroke='%23d9b382' stroke-width='1.9' fill='none' stroke-linecap='round'/></svg>">
@@ -116,8 +116,20 @@
   .hero .sub{font-family:var(--display);font-size:clamp(1.15rem,2.5vw,1.6rem);
     color:var(--foam);margin:1.1rem 0 0;font-style:italic;opacity:.9}
   .hero .hairline{margin:clamp(34px,6vh,54px) 0 0;max-width:420px}
-  .hero .lede{max-width:52ch;margin:clamp(26px,4vh,36px) 0 0;
+  .hero .lede{max-width:56ch;margin:clamp(26px,4vh,36px) 0 0;
     font-size:clamp(1.02rem,1.5vw,1.14rem);color:rgba(242,248,249,.82)}
+  /* the three terms, named and then spent in plain language */
+  .terms{display:grid;gap:0;margin:clamp(30px,5vh,44px) 0 0;max-width:68ch}
+  .terms > div{display:grid;grid-template-columns:minmax(150px,190px) 1fr;gap:1.6rem;
+    align-items:baseline;border-top:1px solid rgba(217,179,130,.20);padding:1.05rem 0}
+  .terms > div:last-of-type{border-bottom:1px solid rgba(217,179,130,.20)}
+  .terms dt{font-family:var(--display);font-size:.78rem;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--rope);margin:0}
+  .terms dd{margin:0;font-size:clamp(1rem,1.55vw,1.14rem);color:rgba(242,248,249,.88);line-height:1.6}
+  .terms em{font-style:italic;color:var(--foam)}
+  @media(max-width:560px){
+    .terms > div{grid-template-columns:1fr;gap:.3rem}
+  }
 
   /* ---------- paper ---------- */
   .paper{background:var(--paper);color:#1d2f38;padding:clamp(64px,10vh,116px) 0}
@@ -190,7 +202,21 @@
       <h1 class="rise d1">Sophos</h1>
       <p class="sub rise d2">A cognitive operating system.</p>
       <div class="hairline" aria-hidden="true"></div>
-      <p class="lede rise d3">Sophos is governance infrastructure for superintelligence: the layer that governs what an advanced system may treat as knowledge, what ends it is permitted to serve, and how every decision is accounted for. It is in private development, and we are not publishing the architecture yet.</p>
+      <dl class="terms rise d3">
+        <div>
+          <dt>Ontology</dt>
+          <dd>What exists. What a system is permitted to treat as real, and who decides that.</dd>
+        </div>
+        <div>
+          <dt>Epistemology</dt>
+          <dd>What is known. On what grounds a claim is admitted, and how it is justified.</dd>
+        </div>
+        <div>
+          <dt>Teleology</dt>
+          <dd>What is intended. Which ends are being served, and by whose authority.</dd>
+        </div>
+      </dl>
+      <p class="lede rise d3">Sophos governs all three. It is in private development, and we are not publishing the architecture yet.</p>
     </div>
   </section>
 
