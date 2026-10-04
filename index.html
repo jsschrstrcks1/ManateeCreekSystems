@@ -7,17 +7,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manatee Creek Systems</title>
-<meta name="description" content="Manatee Creek Systems is building Sophos, governance infrastructure for superintelligence: ontology, epistemology and teleology, governed. Private development.">
+<meta name="description" content="Manatee Creek Systems is building Sophos, governance infrastructure for superintelligence. Private development.">
 <meta name="theme-color" content="#072634">
 <meta name="author" content="Ken Baker, Manatee Creek Systems">
 <link rel="canonical" href="https://manateecreeksystems.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Manatee Creek Systems">
 <meta property="og:title" content="Manatee Creek Systems">
-<meta property="og:description" content="Governance infrastructure for superintelligence: ontology, epistemology and teleology, governed. Building Sophos.">
+<meta property="og:description" content="Governance infrastructure for superintelligence. Building Sophos, in private development.">
 <meta property="og:url" content="https://manateecreeksystems.com/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23072634'/><path d='M5 20c2.6 0 2.6-2.4 5.2-2.4S12.8 20 15.4 20s2.6-2.4 5.2-2.4S23.2 20 25.8 20' stroke='%23d9b382' stroke-width='1.9' fill='none' stroke-linecap='round'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23072634'/><path d='M4 21C9 21 9 11 14.5 11S19 22 23.5 20.5 26 13 28 13' stroke='%23d9b382' stroke-width='2.2' fill='none' stroke-linecap='round'/></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Manatee Creek Systems",
 "url":"https://manateecreeksystems.com/","email":"Ken@ManateeCreekSystems.com",
@@ -48,11 +48,11 @@
     margin:0;background:var(--sea);color:var(--ink);
     font:17.5px/1.75 var(--body);
     -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-    overflow-x:hidden;
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 30px}
   p{margin:0 0 1.05rem}
-  a{color:var(--rope);text-decoration:none}
+  a{color:var(--rope);text-decoration:none;
+    transition:color .15s var(--ease),border-color .15s var(--ease)}
   a:hover{color:#fff}
   h1,h2{font-family:var(--display);font-weight:400;margin:0;letter-spacing:-.012em}
   .skip{position:absolute;left:-9999px;top:0;background:var(--rope);color:var(--sea);
@@ -60,61 +60,52 @@
   .skip:focus{left:0}
   :focus-visible{outline:2px solid var(--rope);outline-offset:3px}
 
-  /* ---------- motion: CSS only, so it needs no script and hides nothing ---------- */
-  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-  @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-  @keyframes breathe{0%,100%{opacity:.45}50%{opacity:.9}}
-  .rise{animation:rise 1.05s var(--ease) both}
-  .d1{animation-delay:.08s}.d2{animation-delay:.2s}.d3{animation-delay:.34s}
-  .hairline{height:1px;background:linear-gradient(90deg,var(--rope),rgba(217,179,130,0));
-    transform-origin:left;animation:draw 1.4s var(--ease) .25s both}
-  /* scroll-linked reveals where supported; elsewhere the elements simply arrive with
-     the page, which is the same reading experience */
-  @supports (animation-timeline: view()){
-    .reveal{animation:rise .95s var(--ease) both;animation-timeline:view();animation-range:entry 8% cover 32%}
-  }
+  /* ---------- motion ----------
+     Three movements, each with one job, all CSS:
+     1. the creek mark draws itself once under the name, so the page carries the same
+        mark as the browser tab; then it holds still.
+     2. the three definitions arrive in reading order, so they are taken as a sequence
+        of three statements rather than one block.
+     3. in-page links glide to their section, so the reader knows they are further down
+        the same page rather than somewhere new.
+     Link colours settle over 150ms (set on `a` above). Every animated element's resting
+     state is its finished state: with motion off, in print, or with no animation
+     support, everything is simply there. */
+  @keyframes creek{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+  @keyframes arrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .mark{display:block;width:min(420px,100%);height:auto;margin:clamp(34px,6vh,54px) 0 0;overflow:visible}
+  .mark path{fill:none;stroke:var(--rope);stroke-width:1.6;stroke-linecap:round;
+    stroke-dasharray:1;stroke-dashoffset:0;animation:creek 1.5s cubic-bezier(.45,.05,.25,1) .2s both}
+  .terms > div{animation:arrive .7s var(--ease) both}
+  .terms > div:nth-of-type(1){animation-delay:.9s}
+  .terms > div:nth-of-type(2){animation-delay:1.05s}
+  .terms > div:nth-of-type(3){animation-delay:1.2s}
+  @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+  section[id]{scroll-margin-top:24px}
   @media (prefers-reduced-motion: reduce){
-    .rise,.hairline,.reveal{animation:none !important;opacity:1 !important;transform:none !important}
-    .pulse{animation:none !important}
+    *,*::before,*::after{animation:none !important;transition:none !important}
   }
-
-  /* ---------- ground ---------- */
-  #aura{
-    position:fixed;inset:-20% -20% auto -20%;height:120vh;pointer-events:none;z-index:0;
-    background:
-      radial-gradient(46% 38% at 24% 18%,rgba(127,196,214,.16),transparent 70%),
-      radial-gradient(40% 34% at 82% 8%,rgba(217,179,130,.10),transparent 72%);
-  }
-  .grain{
-    position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.05;mix-blend-mode:overlay;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  main,header,footer{position:relative;z-index:2}
 
   /* ---------- header ---------- */
   header{padding:26px 0}
   .bar{display:flex;align-items:baseline;justify-content:space-between;gap:24px}
-  .brand{font-family:var(--display);font-size:.82rem;letter-spacing:.34em;
+  .brand{font-family:var(--display);font-size:.82rem;letter-spacing:.22em;
     text-transform:uppercase;color:var(--foam);white-space:nowrap}
   .brand:hover{color:#fff}
   nav{display:flex;gap:26px}
-  nav a{font-family:var(--display);font-size:.76rem;letter-spacing:.24em;
+  nav a{font-family:var(--display);font-size:.76rem;letter-spacing:.18em;
     text-transform:uppercase;color:rgba(230,244,248,.62)}
   nav a:hover{color:var(--rope)}
-  @media(max-width:620px){nav{display:none}}
+  @media(max-width:620px){.bar{flex-direction:column;gap:10px}nav{gap:20px}}
 
   /* ---------- hero ---------- */
   .hero{padding:clamp(64px,13vh,132px) 0 clamp(78px,13vh,140px)}
-  .status{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);
-    font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rope);
-    margin:0 0 clamp(28px,5vh,44px)}
-  .pulse{width:6px;height:6px;border-radius:50%;background:var(--rope);
-    animation:breathe 3.6s ease-in-out infinite}
+  .status{font-family:var(--display);font-size:.74rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--rope);margin:0 0 clamp(28px,5vh,44px)}
   .hero h1{font-size:clamp(3.2rem,11vw,7.4rem);line-height:.94;color:#fff;
     font-weight:400;letter-spacing:-.03em}
   .hero .sub{font-family:var(--display);font-size:clamp(1.15rem,2.5vw,1.6rem);
-    color:var(--foam);margin:1.1rem 0 0;font-style:italic;opacity:.9}
-  .hero .hairline{margin:clamp(34px,6vh,54px) 0 0;max-width:420px}
+    color:var(--foam);margin:1.1rem 0 0}
   .hero .lede{max-width:56ch;margin:clamp(26px,4vh,36px) 0 0;
     font-size:clamp(1.02rem,1.5vw,1.14rem);color:rgba(242,248,249,.82)}
   /* the three terms, named and then spent in plain language */
@@ -122,28 +113,25 @@
   .terms > div{display:grid;grid-template-columns:minmax(150px,190px) 1fr;gap:1.6rem;
     align-items:baseline;border-top:1px solid rgba(217,179,130,.20);padding:1.05rem 0}
   .terms > div:last-of-type{border-bottom:1px solid rgba(217,179,130,.20)}
-  .terms dt{font-family:var(--display);font-size:.78rem;letter-spacing:.24em;
+  .terms dt{font-family:var(--display);font-size:.78rem;letter-spacing:.18em;
     text-transform:uppercase;color:var(--rope);margin:0}
   .terms dd{margin:0;font-size:clamp(1rem,1.55vw,1.14rem);color:rgba(242,248,249,.88);line-height:1.6}
-  .terms em{font-style:italic;color:var(--foam)}
   @media(max-width:560px){
     .terms > div{grid-template-columns:1fr;gap:.3rem}
   }
 
   /* ---------- paper ---------- */
   .paper{background:var(--paper);color:#1d2f38;padding:clamp(64px,10vh,116px) 0}
-  .paper .label{font-family:var(--display);font-size:.74rem;letter-spacing:.3em;
-    text-transform:uppercase;color:#a98a5f;margin:0 0 1.6rem}
-  .paper h2{font-size:clamp(1.55rem,3.6vw,2.5rem);max-width:26ch;color:#12303c;line-height:1.2}
+  .paper .label{font-family:var(--display);font-size:.74rem;letter-spacing:.2em;
+    text-transform:uppercase;color:#7d6540;margin:0 0 1.6rem;font-weight:400}
+  .paper .lead{font-family:var(--display);margin:0;letter-spacing:-.012em;font-size:clamp(1.55rem,3.6vw,2.5rem);max-width:26ch;color:#12303c;line-height:1.2}
   .paper .body{max-width:60ch;margin-top:1.8rem;color:#38505c}
   .paper .body p:last-child{margin-bottom:0}
-  .paper .pull{font-style:italic;color:#12303c;border-left:2px solid var(--rope);
-    padding-left:1.1rem;margin-top:2.2rem;max-width:44ch}
 
   /* ---------- footnotes ---------- */
   .notes{padding:clamp(56px,9vh,92px) 0 clamp(48px,7vh,72px)}
-  .notes .label{font-family:var(--display);font-size:.72rem;letter-spacing:.3em;
-    text-transform:uppercase;color:rgba(230,244,248,.45);margin:0 0 1.5rem}
+  .notes .label{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:rgba(230,244,248,.62);margin:0 0 1.5rem;font-weight:400}
   .notes ul{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
   /* NOT a two-column grid. A grid item made of loose text plus an inline <a> splits
      into one item per run, which drops the prose into the 14px marker column and wraps
@@ -157,25 +145,26 @@
 
   /* ---------- contact ---------- */
   .contact{padding:0 0 clamp(70px,11vh,110px)}
-  .contact .hairline{max-width:100%;margin-bottom:clamp(40px,7vh,60px)}
+  .contact .rule{height:1px;background:var(--rope-dim);margin-bottom:clamp(40px,7vh,60px)}
   .contact h2{font-size:clamp(1.5rem,3.2vw,2.2rem);color:#fff;max-width:22ch}
   .contact .mail{display:inline-block;margin-top:1.4rem;font-family:var(--display);
     font-size:clamp(1.15rem,2.6vw,1.65rem);color:var(--rope);
     border-bottom:1px solid var(--rope-dim);padding-bottom:3px}
-  .contact .mail:hover{color:#fff;border-color:#fff}
+  .contact .mail:hover,.contact .mail:focus-visible{color:#fff;border-color:#fff}
   .contact .small{margin-top:1.5rem;font-size:.9rem;color:rgba(230,244,248,.55);max-width:50ch}
 
   footer{padding:0 0 44px}
   footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
-    align-items:center;font-size:.79rem;letter-spacing:.06em;color:rgba(230,244,248,.4);
+    align-items:center;font-size:.79rem;letter-spacing:.06em;color:rgba(230,244,248,.62);
     border-top:1px solid rgba(230,244,248,.1);padding-top:26px}
-  footer a{color:rgba(230,244,248,.55)}
+  footer a{color:rgba(230,244,248,.8);text-decoration:underline;text-underline-offset:3px;
+    text-decoration-color:var(--rope-dim)}
   footer a:hover{color:var(--rope)}
 
   @media print{
     body{background:#fff;color:#000}
-    #aura,.grain{display:none}
-    .hero h1,.hero .sub,.hero .lede,.notes li,footer{color:#000}
+    *,*::before,*::after{animation:none !important}
+    .hero h1,.hero .sub,.hero .lede,.terms dd,.notes li,footer{color:#000}
     .paper{background:#fff}
   }
 </style>
@@ -183,8 +172,6 @@
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
-<div id="aura" aria-hidden="true"></div>
-<div class="grain" aria-hidden="true"></div>
 
 <header>
   <div class="wrap bar">
@@ -201,11 +188,11 @@
 
   <section class="hero" id="top">
     <div class="wrap">
-      <p class="status rise"><span class="pulse" aria-hidden="true"></span>In development</p>
-      <h1 class="rise d1">Sophos</h1>
-      <p class="sub rise d2">A cognitive operating system.</p>
-      <div class="hairline" aria-hidden="true"></div>
-      <dl class="terms rise d3">
+      <p class="status">In development</p>
+      <h1>Sophos</h1>
+      <p class="sub">A cognitive operating system.</p>
+      <svg class="mark" viewBox="0 0 420 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M1 15C38 15 50 5 82 6S124 21 166 19 208 4 248 7 292 21 330 18 384 9 419 11"/></svg>
+      <dl class="terms">
         <div>
           <dt>Ontology</dt>
           <dd>What exists. What a system is permitted to treat as real, and who decides that.</dd>
@@ -219,38 +206,38 @@
           <dd>What is intended. Which ends are being served, and by whose authority.</dd>
         </div>
       </dl>
-      <p class="lede rise d3">Sophos governs all three. It is in private development, and we are not publishing the architecture yet.</p>
+      <p class="lede">Sophos governs all three. It is in private development, and we are not publishing the architecture yet.</p>
     </div>
   </section>
 
   <section class="paper" id="work">
     <div class="wrap">
-      <p class="label rise">The work</p>
-      <h2 class="reveal">A system for how a mind reasons, not merely what it answers.</h2>
-      <div class="body reveal">
-        <p>Sophos is being built for the institutions that will have to live with machines that outthink them. The difficulty is not capability. It is authority: who decides, on what grounds, what is recorded when a decision matters, and what happens when the answer and the reasoning disagree.</p>
-        <p>That question is unglamorous, and almost nobody is answering it. We are.</p>
+      <h2 class="label">The work</h2>
+      <p class="lead">A system for how a mind reasons.</p>
+      <div class="body">
+        <p>Sophos is being built for the institutions that will have to live with machines that outthink them. The difficulty is authority: who decides, on what grounds, what is recorded when a decision matters, and what happens when the answer and the reasoning disagree.</p>
+        <p>That question is unglamorous. We are answering it.</p>
+        <p>We are not taking clients yet.</p>
       </div>
-      <p class="pull reveal">We are not taking clients yet. We are building the thing.</p>
     </div>
   </section>
 
   <section class="notes" id="elsewhere">
     <div class="wrap">
-      <p class="label rise">Elsewhere</p>
+      <h2 class="label">Elsewhere</h2>
       <ul>
-        <li class="rise d1">Two other properties, both quieter than this one. <a href="https://flickersofmajesty.com">Flickers of Majesty</a>, wildlife and nature photography.</li>
-        <li class="rise d2"><a href="https://cruisinginthewake.com">Cruising in the Wake</a>, a companion for people who go to sea for a living, or for joy.</li>
+        <li><a href="https://flickersofmajesty.com">Flickers of Majesty</a>, wildlife and nature photography.</li>
+        <li><a href="https://cruisinginthewake.com">Cruising in the Wake</a>, a companion for people who go to sea for a living, or for joy.</li>
       </ul>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <div class="hairline" aria-hidden="true"></div>
-      <h2 class="rise">If this is your problem too, write to us.</h2>
-      <p class="rise d1"><a class="mail" href="mailto:Ken@ManateeCreekSystems.com">Ken@ManateeCreekSystems.com</a></p>
-      <p class="small rise d2">We read everything that arrives. Replies may be slow while the build is underway.</p>
+      <div class="rule" aria-hidden="true"></div>
+      <h2>Write to us.</h2>
+      <p><a class="mail" href="mailto:Ken@ManateeCreekSystems.com">Ken@ManateeCreekSystems.com</a></p>
+      <p class="small">We read everything that arrives. Replies may be slow while the build is underway.</p>
     </div>
   </section>
 
