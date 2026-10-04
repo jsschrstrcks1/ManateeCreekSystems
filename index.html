@@ -20,7 +20,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23072634'/><path d='M5 20c2.6 0 2.6-2.4 5.2-2.4S12.8 20 15.4 20s2.6-2.4 5.2-2.4S23.2 20 25.8 20' stroke='%23d9b382' stroke-width='1.9' fill='none' stroke-linecap='round'/></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Manatee Creek Systems",
-"url":"https://manateecreeksystems.com/","email":"Ken@cruisinginthewake.com",
+"url":"https://manateecreeksystems.com/","email":"Ken@ManateeCreekSystems.com",
 "founder":{"@type":"Person","name":"Ken Baker"},
 "description":"Governance infrastructure for superintelligence. Building Sophos, in private development."}
 </script>
@@ -63,7 +63,6 @@
   /* ---------- motion: CSS only, so it needs no script and hides nothing ---------- */
   @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
   @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-  @keyframes drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-2%,1.5%,0) scale(1.06)}100%{transform:translate3d(0,0,0) scale(1)}}
   @keyframes breathe{0%,100%{opacity:.45}50%{opacity:.9}}
   .rise{animation:rise 1.05s var(--ease) both}
   .d1{animation-delay:.08s}.d2{animation-delay:.2s}.d3{animation-delay:.34s}
@@ -76,7 +75,6 @@
   }
   @media (prefers-reduced-motion: reduce){
     .rise,.hairline,.reveal{animation:none !important;opacity:1 !important;transform:none !important}
-    #aura{animation:none !important}
     .pulse{animation:none !important}
   }
 
@@ -86,7 +84,6 @@
     background:
       radial-gradient(46% 38% at 24% 18%,rgba(127,196,214,.16),transparent 70%),
       radial-gradient(40% 34% at 82% 8%,rgba(217,179,130,.10),transparent 72%);
-    animation:drift 26s ease-in-out infinite;
   }
   .grain{
     position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.05;mix-blend-mode:overlay;
@@ -252,7 +249,7 @@
     <div class="wrap">
       <div class="hairline" aria-hidden="true"></div>
       <h2 class="rise">If this is your problem too, write to us.</h2>
-      <p class="rise d1"><a class="mail" href="mailto:Ken@cruisinginthewake.com">Ken@cruisinginthewake.com</a></p>
+      <p class="rise d1"><a class="mail" href="mailto:Ken@ManateeCreekSystems.com">Ken@ManateeCreekSystems.com</a></p>
       <p class="small rise d2">We read everything that arrives. Replies may be slow while the build is underway.</p>
     </div>
   </section>
@@ -266,29 +263,5 @@
   </div>
 </footer>
 
-<script>
-  /* Purely decorative and strictly additive. Nothing here reveals or hides content:
-     without this script the page reads exactly the same, minus the soft light that
-     follows the pointer on a device that has one. */
-  (function () {
-    var aura = document.getElementById('aura');
-    if (!aura) return;
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var x = 0.5, y = 0.18, tx = x, ty = y, raf = null;
-    function tick() {
-      x += (tx - x) * 0.06; y += (ty - y) * 0.06;
-      aura.style.background =
-        'radial-gradient(46% 38% at ' + (x * 100).toFixed(2) + '% ' + (y * 100).toFixed(2) + '%, rgba(127,196,214,.20), transparent 70%),' +
-        'radial-gradient(40% 34% at ' + (100 - x * 100).toFixed(2) + '% 8%, rgba(217,179,130,.12), transparent 72%)';
-      raf = (Math.abs(tx - x) > 0.001 || Math.abs(ty - y) > 0.001) ? requestAnimationFrame(tick) : null;
-    }
-    window.addEventListener('pointermove', function (e) {
-      tx = e.clientX / window.innerWidth;
-      ty = Math.max(0.04, Math.min(0.6, e.clientY / window.innerHeight));
-      if (!raf) raf = requestAnimationFrame(tick);
-    }, { passive: true });
-  })();
-</script>
 </body>
 </html>
