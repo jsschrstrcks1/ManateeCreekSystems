@@ -141,16 +141,25 @@
   .notes{padding:clamp(56px,9vh,92px) 0 clamp(48px,7vh,72px)}
   .notes .label{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;
     text-transform:uppercase;color:rgba(230,244,248,.62);margin:0 0 1.5rem;font-weight:400}
-  .notes ul{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
-  /* NOT a two-column grid. A grid item made of loose text plus an inline <a> splits
-     into one item per run, which drops the prose into the 14px marker column and wraps
-     it a word to a line. Positioned marker, padded text: no such failure mode. */
-  .notes li{position:relative;font-size:.97rem;color:rgba(230,244,248,.72);
-    max-width:62ch;padding-left:26px}
-  .notes li::before{content:"";position:absolute;left:0;top:.78em;width:14px;height:1px;
-    background:var(--rope-dim)}
-  .notes a{color:rgba(230,244,248,.86);border-bottom:1px solid var(--rope-dim);padding-bottom:1px}
-  .notes a:hover{color:#fff}
+  /* Cards after the ones on cruisinginthewake.com (rounded, rope-bordered, title link
+     over a line of description), retuned for the dark ground. The heading link is
+     stretched over the whole card, so the card is one target and one tab stop. The
+     hover lift shows the card is a link, in the same rope the page uses for links. */
+  .cards{list-style:none;margin:0;padding:0;display:grid;gap:18px;max-width:880px}
+  @media(min-width:720px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .card{position:relative;display:flex;flex-direction:column;
+    background:rgba(230,244,248,.035);border:1px solid var(--rope-dim);border-radius:14px;
+    padding:24px 26px 22px;
+    transition:border-color .15s var(--ease),background-color .15s var(--ease),transform .2s var(--ease)}
+  .card h3{font-family:var(--display);font-weight:400;font-size:1.32rem;line-height:1.25;margin:0 0 .5rem}
+  .card h3 a{color:#fff}
+  .card h3 a::after{content:"";position:absolute;inset:0;border-radius:inherit}
+  .card p{margin:0;font-size:.97rem;line-height:1.6;color:rgba(230,244,248,.78)}
+  .card .host{margin-top:auto;padding-top:1.1rem;font-family:var(--display);font-size:.74rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--rope)}
+  .card:hover,.card:focus-within{border-color:var(--rope);background:rgba(230,244,248,.06);transform:translateY(-2px)}
+  .card h3 a:focus-visible{outline:none}
+  .card:focus-within{outline:2px solid var(--rope);outline-offset:3px}
 
   /* ---------- contact ---------- */
   .contact{padding:0 0 clamp(70px,11vh,110px)}
@@ -173,7 +182,8 @@
   @media print{
     body{background:#fff;color:#000}
     *,*::before,*::after{animation:none !important}
-    .hero h1,.hero .greek,.hero .sub,.hero .lede,.terms dd,.notes li,footer{color:#000}
+    .hero h1,.hero .greek,.hero .sub,.hero .lede,.terms dd,.card h3 a,.card p,footer{color:#000}
+    .card{border-color:#999}
     .paper{background:#fff}
   }
 </style>
@@ -235,9 +245,17 @@
   <section class="notes" id="elsewhere">
     <div class="wrap">
       <h2 class="label">Elsewhere</h2>
-      <ul>
-        <li><a href="https://flickersofmajesty.com">Flickers of Majesty</a>, wildlife and nature photography.</li>
-        <li><a href="https://cruisinginthewake.com">Cruising in the Wake</a>, a companion for people who go to sea for a living, or for joy.</li>
+      <ul class="cards">
+        <li class="card">
+          <h3><a href="https://flickersofmajesty.com">Flickers of Majesty</a></h3>
+          <p>Wildlife and nature photography.</p>
+          <p class="host" aria-hidden="true">flickersofmajesty.com</p>
+        </li>
+        <li class="card">
+          <h3><a href="https://cruisinginthewake.com">Cruising in the Wake</a></h3>
+          <p>A companion for people who go to sea for a living, or for joy.</p>
+          <p class="host" aria-hidden="true">cruisinginthewake.com</p>
+        </li>
       </ul>
     </div>
   </section>
