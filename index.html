@@ -161,6 +161,44 @@
   .card h3 a:focus-visible{outline:none}
   .card:focus-within{outline:2px solid var(--rope);outline-offset:3px}
 
+  /* ---------- updates: the newsletter signup ---------- */
+  /* Sits on the sea, between the cards and the contact rule. One field, one
+     button, and a reason to use it that is not a reason to distrust it. It posts
+     cross-origin to the newsletter server on news.manateecreeksystems.com; the
+     server declares this origin, so the page may read the reply. Without that
+     declaration the POST still lands and the address is still subscribed, but the
+     browser hides the reply and this page would report a failure for a signup
+     that worked. */
+  .updates{padding:0 0 clamp(56px,9vh,92px)}
+  .updates .label{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:rgba(230,244,248,.62);margin:0 0 1.5rem;font-weight:400}
+  .updates .hook{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.2rem);
+    line-height:1.25;color:#fff;max-width:26ch;margin:0}
+  .updates .lede{margin:1.4rem 0 0;font-size:clamp(1rem,1.5vw,1.1rem);max-width:56ch;
+    color:rgba(242,248,249,.8)}
+  .signup{margin:2rem 0 0;max-width:560px}
+  .signup label{display:block;font-family:var(--display);font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--rope);margin:0 0 .7rem}
+  .signup .field{display:flex;flex-wrap:wrap;gap:.6rem}
+  .signup input[type=email]{flex:1 1 240px;min-width:0;background:rgba(230,244,248,.06);
+    border:1px solid var(--rope-dim);border-radius:10px;color:var(--ink);
+    padding:.8rem .9rem;font:inherit;font-size:1rem}
+  .signup input[type=email]::placeholder{color:rgba(230,244,248,.38)}
+  .signup input[type=email]:focus{outline:2px solid var(--rope);outline-offset:2px}
+  .signup button{font-family:var(--display);font-size:.78rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--sea);background:var(--rope);border:0;
+    border-radius:10px;padding:.85rem 1.6rem;cursor:pointer;white-space:nowrap;
+    transition:background-color .15s var(--ease)}
+  .signup button:hover,.signup button:focus-visible{background:#fff}
+  .signup button[disabled]{opacity:.55;cursor:progress}
+  /* the honeypot: never visible, never focusable, never announced */
+  .signup .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .signup .fine{margin:.95rem 0 0;font-size:.85rem;color:rgba(230,244,248,.5);max-width:56ch}
+  .signup .msg{margin:.95rem 0 0;font-size:.93rem;min-height:1.25em}
+  .signup .msg.ok{color:var(--accent)}
+  .signup .msg.err{color:#f0a8a0}
+  @media(max-width:520px){.signup button{flex:1 1 100%}}
+
   /* ---------- contact ---------- */
   .contact{padding:0 0 clamp(70px,11vh,110px)}
   .contact .rule{height:1px;background:var(--rope-dim);margin-bottom:clamp(40px,7vh,60px)}
@@ -198,6 +236,7 @@
     <nav aria-label="Primary">
       <a href="#work">The work</a>
       <a href="#elsewhere">Elsewhere</a>
+      <a href="#updates">Dispatches</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -260,6 +299,37 @@
     </div>
   </section>
 
+  <section class="updates" id="updates">
+    <div class="wrap">
+      <h2 class="label">Dispatches</h2>
+      <p class="hook">Sophos is not public yet. The first word goes to this list.</p>
+      <p class="lede">Occasional notes on what we are building, and the problems we keep running into. No schedule, and nothing to buy.</p>
+
+      <!--
+        Posts cross-origin to the newsletter server, which picks the sender from
+        the Host header and confirms by email before anything is sent. The form
+        works with scripting off: it submits natively and the browser lands on the
+        server's own confirmation page. The script below is strictly additive.
+      -->
+      <form class="signup" id="signup" method="post"
+            action="https://news.manateecreeksystems.com/signup">
+        <label for="su-email">Email address</label>
+        <div class="field">
+          <input type="email" id="su-email" name="email" required
+                 placeholder="you@example.com" autocomplete="email">
+          <button type="submit">Subscribe</button>
+        </div>
+        <!-- honeypot: empty for a human, filled by a bot, silently dropped -->
+        <p class="hp" aria-hidden="true">
+          <label>Leave this field empty</label>
+          <input type="text" name="_hp" tabindex="-1" autocomplete="off">
+        </p>
+        <p class="fine">We email a confirmation link first. Nothing is added to the list until you click it. Every message carries a one-click unsubscribe.</p>
+        <p class="msg" id="su-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
     <div class="wrap">
       <div class="rule" aria-hidden="true"></div>
@@ -277,6 +347,51 @@
     <span><a href="https://manateecreeksystems.com">manateecreeksystems.com</a></span>
   </div>
 </footer>
+
+<script>
+  /* The page's only behavioural script, and it is strictly additive: with it the
+     signup reply is shown in place, without it the plain form POST works and the
+     visitor lands on the newsletter server's own confirmation page. Nothing here
+     adds, hides or changes content. The server must permit THIS origin to read
+     the reply; otherwise the browser hides a reply that arrived and a signup that
+     worked is reported to the visitor as a failure. */
+  (function () {
+    var form = document.getElementById('signup');
+    var msg = document.getElementById('su-msg');
+    if (!form || !msg) return;
+    var button = form.querySelector('button[type=submit]');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      msg.className = 'msg';
+      msg.textContent = 'One moment.';
+      if (button) button.disabled = true;
+      fetch(form.action, { method: 'POST', body: new URLSearchParams(new FormData(form)) })
+        .then(function (res) {
+          return res.text().then(function (text) { return { ok: res.ok, text: text }; });
+        })
+        .then(function (r) {
+          var doc = new DOMParser().parseFromString(r.text, 'text/html');
+          var heading = doc.querySelector('h1');
+          var error = doc.querySelector('p[style*="a00"]');
+          var said = (error && error.textContent.trim()) || (heading && heading.textContent.trim()) || '';
+          if (r.ok && !error) {
+            msg.className = 'msg ok';
+            msg.textContent = said || 'Check your inbox for a confirmation link.';
+            var field = form.querySelector('input[name=email]');
+            if (field) field.value = '';
+          } else {
+            msg.className = 'msg err';
+            msg.textContent = said || 'That did not go through. Please try again.';
+          }
+        })
+        .catch(function () {
+          msg.className = 'msg err';
+          msg.textContent = 'Could not reach the signup service. Please try again shortly.';
+        })
+        .then(function () { if (button) button.disabled = false; });
+    });
+  })();
+</script>
 
 </body>
 </html>
