@@ -27,7 +27,8 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23072634'/><path d='M4 21C9 21 9 11 14.5 11S19 22 23.5 20.5 26 13 28 13' stroke='%23d9b382' stroke-width='2.2' fill='none' stroke-linecap='round'/></svg>">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Manatee Creek Systems",
-"url":"https://manateecreeksystems.com/","email":"Ken@ManateeCreekSystems.com",
+"legalName":"Manatee Creek Systems LLC","url":"https://manateecreeksystems.com/","email":"Ken@ManateeCreekSystems.com",
+"foundingDate":"2026","address":{"@type":"PostalAddress","addressLocality":"Hudson","addressRegion":"FL","addressCountry":"US"},
 "founder":{"@type":"Person","name":"Ken Baker"},
 "description":"Governance infrastructure for superintelligence. Building Sophos, in private development."}
 </script>
@@ -99,11 +100,33 @@
   .brand{font-family:var(--display);font-size:.82rem;letter-spacing:.22em;
     text-transform:uppercase;color:var(--foam);white-space:nowrap}
   .brand:hover{color:#fff}
+  .brand-mark{width:26px;height:26px;vertical-align:-7px;margin-right:12px}
   nav{display:flex;gap:26px}
   nav a{font-family:var(--display);font-size:.76rem;letter-spacing:.18em;
     text-transform:uppercase;color:rgba(230,244,248,.62)}
   nav a:hover{color:var(--rope)}
-  @media(max-width:620px){.bar{flex-direction:column;gap:10px}nav{gap:20px}}
+  /* Mobile menu: native <details>, so it opens and closes with no script, by keyboard
+     and screen reader alike. Below 860px the inline nav does not fit beside the name. */
+  .menu{display:none;position:relative}
+  .menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;
+    font-family:var(--display);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(230,244,248,.8);padding:6px 0}
+  .menu summary::-webkit-details-marker{display:none}
+  .menu summary:hover{color:var(--rope)}
+  .burger{display:inline-block;width:20px;height:2px;background:currentColor;position:relative}
+  .burger::before,.burger::after{content:"";position:absolute;left:0;width:20px;height:2px;background:currentColor}
+  .burger::before{top:-6px}.burger::after{top:6px}
+  .menu[open] .burger{background:transparent}
+  .menu[open] .burger::before{top:0;transform:rotate(45deg)}
+  .menu[open] .burger::after{top:0;transform:rotate(-45deg)}
+  .menu ul{list-style:none;margin:0;padding:10px 0;position:absolute;right:0;top:calc(100% + 8px);
+    min-width:200px;background:var(--sea-mid);border:1px solid var(--rope-dim);border-radius:12px;z-index:50}
+  .menu li a{display:block;padding:10px 20px;font-family:var(--display);font-size:.8rem;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--foam)}
+  .menu li a:hover,.menu li a:focus-visible{color:var(--rope)}
+  @media(max-width:860px){nav.primary{display:none}.menu{display:block}.bar{align-items:center}}
+  @media(max-width:420px){.brand{font-size:.72rem;letter-spacing:.16em}.brand-mark{width:22px;height:22px;margin-right:9px}}
+  @media(max-width:360px){.wrap{padding:0 16px}.brand{letter-spacing:.08em}.menu summary{gap:0;font-size:0}}
 
   /* ---------- hero ---------- */
   .hero{padding:clamp(64px,13vh,132px) 0 clamp(78px,13vh,140px)}
@@ -136,6 +159,12 @@
   .paper .lead{font-family:var(--display);margin:0;letter-spacing:-.012em;font-size:clamp(1.55rem,3.6vw,2.5rem);max-width:26ch;color:#12303c;line-height:1.2}
   .paper .body{max-width:60ch;margin-top:1.8rem;color:#38505c}
   .paper .body p:last-child{margin-bottom:0}
+
+  /* ---------- about ---------- */
+  .about{padding:clamp(56px,9vh,92px) 0 0}
+  .about .label{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;
+    text-transform:uppercase;color:rgba(230,244,248,.62);margin:0 0 1.5rem;font-weight:400}
+  .about .about-body{max-width:60ch;margin:0;font-size:clamp(1rem,1.5vw,1.1rem);color:rgba(242,248,249,.85)}
 
   /* ---------- footnotes ---------- */
   .notes{padding:clamp(56px,9vh,92px) 0 clamp(48px,7vh,72px)}
@@ -219,6 +248,7 @@
 
   @media print{
     body{background:#fff;color:#000}
+    .about .about-body{color:#000}
     *,*::before,*::after{animation:none !important}
     .hero h1,.hero .greek,.hero .sub,.hero .lede,.terms dd,.card h3 a,.card p,footer{color:#000}
     .card{border-color:#999}
@@ -232,13 +262,24 @@
 
 <header>
   <div class="wrap bar">
-    <a class="brand" href="#top">Manatee Creek Systems</a>
-    <nav aria-label="Primary">
+    <a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="6" fill="#0a3d62"/><path d="M4 21C9 21 9 11 14.5 11S19 22 23.5 20.5 26 13 28 13" stroke="#d9b382" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>Manatee Creek Systems</a>
+    <nav class="primary" aria-label="Primary">
       <a href="#work">The work</a>
+      <a href="#about">About</a>
       <a href="#elsewhere">Elsewhere</a>
       <a href="#updates">Dispatches</a>
       <a href="#contact">Contact</a>
     </nav>
+    <details class="menu">
+      <summary aria-label="Menu"><span class="burger" aria-hidden="true"></span>Menu</summary>
+      <nav aria-label="Primary, mobile"><ul>
+        <li><a href="#work">The work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#elsewhere">Elsewhere</a></li>
+        <li><a href="#updates">Dispatches</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul></nav>
+    </details>
   </div>
 </header>
 
@@ -276,8 +317,16 @@
       <div class="body">
         <p>Institutions are starting to hand real decisions to AI systems. When one of those systems gets something badly wrong, the mistake is seldom in the reasoning. It happens earlier, in how the question was read. The system settles on one meaning of an ambiguous request, or quietly swaps the goal it was handed for an easier one, and then reasons carefully about the wrong problem. Ask whether to walk or drive to the car wash, and it may tell you to walk because the place is close, forgetting that the truck is the thing that needs washing. The answer reads as sound. Nothing in it shows where it went wrong.</p>
         <p>Better instructions in the prompt do not reach this, and neither does a larger model. Both improve the reasoning, and the reasoning is seldom where it broke. What is missing is anything standing between the system and the answer it gives: a check that its evidence can carry the claim it makes, and a way to say &ldquo;there is not enough here to answer&rdquo; that counts as a proper result rather than a failure. Sophos supplies that.</p>
+        <p>Sophos is a model-independent governance system for autonomous AI agents. It provides independently enforced authorization, evidence verification, pre-action controls, and auditable decisions. Designed for commercial and government applications, Sophos helps organizations deploy AI automation while preserving human authority and accountability.</p>
         <p>We are not taking clients yet.</p>
       </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <h2 class="label">About</h2>
+      <p class="about-body">Manatee Creek Systems LLC is a privately held, founder-funded software research and development company based in Hudson, Florida. Founded in 2026, the company develops AI governance, autonomous systems, and software assurance technologies. Its founder leads architecture, development oversight, testing, and commercialization planning.</p>
     </div>
   </section>
 
