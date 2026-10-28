@@ -1,0 +1,6 @@
+{
+  "_about": "The parts of ManateeCreekSystems the manual describes, in order. Authored by hand; add a capability's slug to a section once it is written (Project-Sophos admin/change-record.mjs reflow --repo .).",
+  "title": "ManateeCreekSystems: what it can do, and how it got here",
+  "intro": "The one-page public website for Manatee Creek Systems LLC (manateecreeksystems.com), served as static files from a single index.html.",
+  "sections": []
+}
