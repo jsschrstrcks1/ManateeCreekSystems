@@ -8,6 +8,16 @@ The one-page public website for Manatee Creek Systems LLC (manateecreeksystems.c
 
 Every change entry, newest first: what it was for, and what it made possible.
 
+### 20261031-sophos-skill-1-4-2
+
+Task `skill-sync-sophos-1-4-2-argus-mcs-20261031`.
+
+**Why.** ManateeCreekSystems held the sophos skill at v1.4.1, missing the 23-line re-bootstrap block that tells an agent to redo the whole bootstrap when it expires, so an agent here would not be told to.
+
+**Enables.** An agent working in this repo is told the same expiry rule as every other household repo, and skill-sync reports this repo in sync with the source instead of one version behind.
+
+**Untested:** A copy of one skill file from its source; the bytes were compared by sha256 against Project-Sophos main and the copy loses nothing, since its only exclusive line was the version line.
+
 ### 20261028-change-record-in-manateecreeksystems
 
 Task `change-record-deploy-repos-20261028`.
