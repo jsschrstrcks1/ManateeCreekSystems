@@ -1,0 +1,357 @@
+{
+  "format": "lexicon-entity/1",
+  "entity": "change:20261031-sophos-skill-1-4-2",
+  "_about": "Written by admin/change-record.mjs new. Append-only once on main; a correction is a new entry naming this one in supersedes. docs/lexicon/CHANGE-RECORD.md",
+  "statements": [
+    {
+      "schema_version": "envelope/1",
+      "kind": "claim",
+      "subject": "change:20261031-sophos-skill-1-4-2#task",
+      "content": {
+        "summary": "change:20261031-sophos-skill-1-4-2 task = \"skill-sync-sophos-1-4-2-argus-mcs-20261031\"",
+        "ref": null,
+        "hash": null
+      },
+      "provenance": {
+        "source_kind": "lexicon-statement",
+        "source_ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+        "uri": null,
+        "publisher": "committer",
+        "trust_tier": "unrated"
+      },
+      "actor": {
+        "kind": "agent",
+        "id": "unknown",
+        "provider": "household",
+        "model": null
+      },
+      "epistemic": {
+        "status": "known",
+        "tier": null,
+        "evidence": [
+          {
+            "ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+            "tier": "primary"
+          }
+        ]
+      },
+      "uncertainty": {
+        "ignorance": 0.25,
+        "conflict": 0,
+        "basis": "statement with status 'known' and 1 evidence ref(s); not calibrated"
+      },
+      "validators": [],
+      "policies": [],
+      "dependencies": [],
+      "lineage": {
+        "parents": [],
+        "derived_by": null
+      },
+      "cost": {
+        "tokens_in": null,
+        "tokens_out": null,
+        "usd": null,
+        "ms": null
+      },
+      "timestamps": {
+        "valid_from": null,
+        "valid_until": null,
+        "asserted_at": "2026-10-31T16:53:22.246Z",
+        "observed_at": "2026-10-31T16:53:22.246Z"
+      },
+      "decision": null,
+      "ext": {
+        "type": "lexicon-statement/1",
+        "pack": "public.change",
+        "entity": "change:20261031-sophos-skill-1-4-2",
+        "property": "task",
+        "value": "skill-sync-sophos-1-4-2-argus-mcs-20261031",
+        "unit": null,
+        "rank": "normal",
+        "partition": "public"
+      },
+      "classification": "public",
+      "id": "env-1150a043162c88f4"
+    },
+    {
+      "schema_version": "envelope/1",
+      "kind": "claim",
+      "subject": "change:20261031-sophos-skill-1-4-2#why",
+      "content": {
+        "summary": "change:20261031-sophos-skill-1-4-2 why = \"ManateeCreekSystems held the sophos skill at v1.4.1, missing the 23-line re-bootstrap block that tells an agent to redo the whole bootstrap when it expires, so an agent here would not be told to.\"",
+        "ref": null,
+        "hash": null
+      },
+      "provenance": {
+        "source_kind": "lexicon-statement",
+        "source_ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+        "uri": null,
+        "publisher": "committer",
+        "trust_tier": "unrated"
+      },
+      "actor": {
+        "kind": "agent",
+        "id": "unknown",
+        "provider": "household",
+        "model": null
+      },
+      "epistemic": {
+        "status": "known",
+        "tier": null,
+        "evidence": [
+          {
+            "ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+            "tier": "primary"
+          }
+        ]
+      },
+      "uncertainty": {
+        "ignorance": 0.25,
+        "conflict": 0,
+        "basis": "statement with status 'known' and 1 evidence ref(s); not calibrated"
+      },
+      "validators": [],
+      "policies": [],
+      "dependencies": [],
+      "lineage": {
+        "parents": [],
+        "derived_by": null
+      },
+      "cost": {
+        "tokens_in": null,
+        "tokens_out": null,
+        "usd": null,
+        "ms": null
+      },
+      "timestamps": {
+        "valid_from": null,
+        "valid_until": null,
+        "asserted_at": "2026-10-31T16:53:22.246Z",
+        "observed_at": "2026-10-31T16:53:22.246Z"
+      },
+      "decision": null,
+      "ext": {
+        "type": "lexicon-statement/1",
+        "pack": "public.change",
+        "entity": "change:20261031-sophos-skill-1-4-2",
+        "property": "why",
+        "value": "ManateeCreekSystems held the sophos skill at v1.4.1, missing the 23-line re-bootstrap block that tells an agent to redo the whole bootstrap when it expires, so an agent here would not be told to.",
+        "unit": null,
+        "rank": "normal",
+        "partition": "public"
+      },
+      "classification": "public",
+      "id": "env-26fc05f55be2f258"
+    },
+    {
+      "schema_version": "envelope/1",
+      "kind": "claim",
+      "subject": "change:20261031-sophos-skill-1-4-2#enables",
+      "content": {
+        "summary": "change:20261031-sophos-skill-1-4-2 enables = \"An agent working in this repo is told the same expiry rule as every other household repo, and skill-sync reports this repo in sync with the source instead of one version behind.\"",
+        "ref": null,
+        "hash": null
+      },
+      "provenance": {
+        "source_kind": "lexicon-statement",
+        "source_ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+        "uri": null,
+        "publisher": "committer",
+        "trust_tier": "unrated"
+      },
+      "actor": {
+        "kind": "agent",
+        "id": "unknown",
+        "provider": "household",
+        "model": null
+      },
+      "epistemic": {
+        "status": "known",
+        "tier": null,
+        "evidence": [
+          {
+            "ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+            "tier": "primary"
+          }
+        ]
+      },
+      "uncertainty": {
+        "ignorance": 0.25,
+        "conflict": 0,
+        "basis": "statement with status 'known' and 1 evidence ref(s); not calibrated"
+      },
+      "validators": [],
+      "policies": [],
+      "dependencies": [],
+      "lineage": {
+        "parents": [],
+        "derived_by": null
+      },
+      "cost": {
+        "tokens_in": null,
+        "tokens_out": null,
+        "usd": null,
+        "ms": null
+      },
+      "timestamps": {
+        "valid_from": null,
+        "valid_until": null,
+        "asserted_at": "2026-10-31T16:53:22.246Z",
+        "observed_at": "2026-10-31T16:53:22.246Z"
+      },
+      "decision": null,
+      "ext": {
+        "type": "lexicon-statement/1",
+        "pack": "public.change",
+        "entity": "change:20261031-sophos-skill-1-4-2",
+        "property": "enables",
+        "value": "An agent working in this repo is told the same expiry rule as every other household repo, and skill-sync reports this repo in sync with the source instead of one version behind.",
+        "unit": null,
+        "rank": "normal",
+        "partition": "public"
+      },
+      "classification": "public",
+      "id": "env-0d5152058697b8f3"
+    },
+    {
+      "schema_version": "envelope/1",
+      "kind": "claim",
+      "subject": "change:20261031-sophos-skill-1-4-2#untested_reason",
+      "content": {
+        "summary": "change:20261031-sophos-skill-1-4-2 untested_reason = \"A copy of one skill file from its source; the bytes were compared by sha256 against Project-Sophos main and the copy loses nothing, since its only exclusive line was the version line.\"",
+        "ref": null,
+        "hash": null
+      },
+      "provenance": {
+        "source_kind": "lexicon-statement",
+        "source_ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+        "uri": null,
+        "publisher": "committer",
+        "trust_tier": "unrated"
+      },
+      "actor": {
+        "kind": "agent",
+        "id": "unknown",
+        "provider": "household",
+        "model": null
+      },
+      "epistemic": {
+        "status": "known",
+        "tier": null,
+        "evidence": [
+          {
+            "ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+            "tier": "primary"
+          }
+        ]
+      },
+      "uncertainty": {
+        "ignorance": 0.25,
+        "conflict": 0,
+        "basis": "statement with status 'known' and 1 evidence ref(s); not calibrated"
+      },
+      "validators": [],
+      "policies": [],
+      "dependencies": [],
+      "lineage": {
+        "parents": [],
+        "derived_by": null
+      },
+      "cost": {
+        "tokens_in": null,
+        "tokens_out": null,
+        "usd": null,
+        "ms": null
+      },
+      "timestamps": {
+        "valid_from": null,
+        "valid_until": null,
+        "asserted_at": "2026-10-31T16:53:22.246Z",
+        "observed_at": "2026-10-31T16:53:22.246Z"
+      },
+      "decision": null,
+      "ext": {
+        "type": "lexicon-statement/1",
+        "pack": "public.change",
+        "entity": "change:20261031-sophos-skill-1-4-2",
+        "property": "untested_reason",
+        "value": "A copy of one skill file from its source; the bytes were compared by sha256 against Project-Sophos main and the copy loses nothing, since its only exclusive line was the version line.",
+        "unit": null,
+        "rank": "normal",
+        "partition": "public"
+      },
+      "classification": "public",
+      "id": "env-505dd8b9ad11f5c6"
+    },
+    {
+      "schema_version": "envelope/1",
+      "kind": "claim",
+      "subject": "change:20261031-sophos-skill-1-4-2#moved",
+      "content": {
+        "summary": "change:20261031-sophos-skill-1-4-2 moved = {}",
+        "ref": null,
+        "hash": null
+      },
+      "provenance": {
+        "source_kind": "lexicon-statement",
+        "source_ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+        "uri": null,
+        "publisher": "measured",
+        "trust_tier": "unrated"
+      },
+      "actor": {
+        "kind": "agent",
+        "id": "unknown",
+        "provider": "household",
+        "model": null
+      },
+      "epistemic": {
+        "status": "known",
+        "tier": null,
+        "evidence": [
+          {
+            "ref": "tekton:skill-sync-sophos-1-4-2-argus-mcs-20261031",
+            "tier": "primary"
+          }
+        ]
+      },
+      "uncertainty": {
+        "ignorance": 0.25,
+        "conflict": 0,
+        "basis": "statement with status 'known' and 1 evidence ref(s); not calibrated"
+      },
+      "validators": [],
+      "policies": [],
+      "dependencies": [],
+      "lineage": {
+        "parents": [],
+        "derived_by": null
+      },
+      "cost": {
+        "tokens_in": null,
+        "tokens_out": null,
+        "usd": null,
+        "ms": null
+      },
+      "timestamps": {
+        "valid_from": null,
+        "valid_until": null,
+        "asserted_at": "2026-10-31T16:53:22.246Z",
+        "observed_at": "2026-10-31T16:53:22.246Z"
+      },
+      "decision": null,
+      "ext": {
+        "type": "lexicon-statement/1",
+        "pack": "public.change",
+        "entity": "change:20261031-sophos-skill-1-4-2",
+        "property": "moved",
+        "value": {},
+        "unit": null,
+        "rank": "normal",
+        "partition": "public"
+      },
+      "classification": "public",
+      "id": "env-39b0505b5d13e255"
+    }
+  ]
+}
