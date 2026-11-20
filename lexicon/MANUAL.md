@@ -8,6 +8,16 @@ The one-page public website for Manatee Creek Systems LLC (manateecreeksystems.c
 
 Every change entry, newest first: what it was for, and what it made possible.
 
+### 20261120-skill-sync-sophos-state-machines
+
+Task `skill-sync-four-repos-20261119`.
+
+**Why.** This repo's synced copies of the sophos skill (9d2d57df) and the state-machines skill (missing) had fallen behind their sources, and open-claw-stuff's skill-sync pre-push gate refuses every push from a machine holding stale synced skills.
+
+**Enables.** The sophos skill matches its source (open-claw-stuff skills/sophos/SKILL.md, 472edd07) and the state-machines skill matches Project-Sophos skills/state-machines/SKILL.md, so this repo no longer blocks open-claw-stuff pushes.
+
+**Untested:** two synced skill files copied byte-for-byte from their declared sources; the skill-sync verify check is the test
+
 ### 20261109-skill-sync-four-questions
 
 Task `ocs-mirror-four-questions-20261109`.
