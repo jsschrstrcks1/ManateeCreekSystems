@@ -28,6 +28,16 @@ Task `kanon-rename-20261125`.
 
 **Untested:** Static copy and image change with no test suite in this repo; verified by rendering the page in Chromium and confirming no visible Sophos text remains.
 
+### 20261125-kanon-mark
+
+Task `kanon-rename-20261125`.
+
+**Why.** Kanon needs its own recognizable mark so the renamed product has an icon, favicon and app icons ready for the coming site update.
+
+**Enables.** A stylized K, a measuring rod with the creek leg, in every size the site and phones need, drawn as shapes so it carries no font license.
+
+**Untested:** Image assets only, not yet referenced by the page; rendered at 16 to 512 px in Chromium and checked by eye.
+
 ### 20261119-state-machines-skill
 
 Task `state-machines-skill-20261119`.

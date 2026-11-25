@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">Kanon</title>
+  <rect width="64" height="64" rx="14" fill="#072634"/>
+  <!-- stem: the measuring rod -->
+  <rect x="16" y="13" width="8" height="38" fill="#f2f8f9"/>
+  <rect x="12" y="13" width="16" height="3" fill="#f2f8f9"/>
+  <rect x="12" y="48" width="16" height="3" fill="#f2f8f9"/>
+  <!-- rule ticks -->
+  <g fill="#d9b382">
+    <rect x="16" y="20" width="4" height="1.6"/><rect x="16" y="26" width="2.5" height="1.6"/>
+    <rect x="16" y="32" width="4" height="1.6"/><rect x="16" y="38" width="2.5" height="1.6"/>
+    <rect x="16" y="44" width="4" height="1.6"/>
+  </g>
+  <!-- upper arm -->
+  <polygon points="24,33 39,16 46,16 27,37" fill="#f2f8f9"/>
+  <rect x="35" y="13" width="15" height="3" fill="#f2f8f9"/>
+  <!-- lower leg: the creek, ending in a ripple -->
+  <path d="M27.5 31.5 L33.5 31.5 L44 46 C46.5 49.4 49 49.6 52 47.6 L52 51 C48 53.2 44.4 52.6 41.6 49.2 Z" fill="#d9b382"/>
+</svg>
