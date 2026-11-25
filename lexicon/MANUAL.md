@@ -8,6 +8,26 @@ The one-page public website for Manatee Creek Systems LLC (manateecreeksystems.c
 
 Every change entry, newest first: what it was for, and what it made possible.
 
+### 20261125-self-hosted-libertinus
+
+Task `kanon-rename-20261125`.
+
+**Why.** Visitors' own Apple and Microsoft fonts, and a Palatino clone in the share image, left the site's lettering resting on fonts we do not license; Ken wants fonts nobody can sue over.
+
+**Enables.** The site and its share image use Libertinus Serif under the SIL Open Font License, served from the site itself with no request to Google or any font service.
+
+**Untested:** Font swap with no test suite here; verified in Chromium that the font loads from the site, no font request leaves it, and the page still fits a phone.
+
+### 20261125-kanon-rename
+
+Task `kanon-rename-20261125`.
+
+**Why.** The product name Sophos raised a copyright concern, so the public site must stop presenting it under that name.
+
+**Enables.** Visitors, search engines and social previews see the product as Kanon, with a matching Greek gloss and share image, so the site can be shared without the old name.
+
+**Untested:** Static copy and image change with no test suite in this repo; verified by rendering the page in Chromium and confirming no visible Sophos text remains.
+
 ### 20261119-state-machines-skill
 
 Task `state-machines-skill-20261119`.
