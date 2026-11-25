@@ -8,6 +8,16 @@ The one-page public website for Manatee Creek Systems LLC (manateecreeksystems.c
 
 Every change entry, newest first: what it was for, and what it made possible.
 
+### 20261125-self-hosted-libertinus
+
+Task `kanon-rename-20261125`.
+
+**Why.** Visitors' own Apple and Microsoft fonts, and a Palatino clone in the share image, left the site's lettering resting on fonts we do not license; Ken wants fonts nobody can sue over.
+
+**Enables.** The site and its share image use Libertinus Serif under the SIL Open Font License, served from the site itself with no request to Google or any font service.
+
+**Untested:** Font swap with no test suite here; verified in Chromium that the font loads from the site, no font request leaves it, and the page still fits a phone.
+
 ### 20261125-kanon-rename
 
 Task `kanon-rename-20261125`.
