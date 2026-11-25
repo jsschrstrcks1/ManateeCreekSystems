@@ -8,6 +8,16 @@ The one-page public website for Manatee Creek Systems LLC (manateecreeksystems.c
 
 Every change entry, newest first: what it was for, and what it made possible.
 
+### 20261125-kanon-rename
+
+Task `kanon-rename-20261125`.
+
+**Why.** The product name Sophos raised a copyright concern, so the public site must stop presenting it under that name.
+
+**Enables.** Visitors, search engines and social previews see the product as Kanon, with a matching Greek gloss and share image, so the site can be shared without the old name.
+
+**Untested:** Static copy and image change with no test suite in this repo; verified by rendering the page in Chromium and confirming no visible Sophos text remains.
+
 ### 20261119-state-machines-skill
 
 Task `state-machines-skill-20261119`.
